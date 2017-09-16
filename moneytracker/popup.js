@@ -25,7 +25,7 @@ var getDate = function(callback) {
       target = parseFloat(code.slice(1));
   else if (code == parseFloat(code) && parseFloat(code) >= 0)
     target = parseFloat(code);
-  elsethinkpadsthinkpads
+  else
     callback("Invalid");
 
   if (target >= 0) {
@@ -42,7 +42,6 @@ var getDate = function(callback) {
 
       var todays_date = current_local_time.toISOString().slice(0,10);
       var target_date = target_local_time.toISOString().slice(0,10);
-thinkpads
       chrome.storage.sync.get(['monies'], function(monies){
       if(slope < 0){
         callback("You're spending too much!");

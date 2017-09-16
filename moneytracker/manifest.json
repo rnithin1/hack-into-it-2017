@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+
+  "name": "Money Tracker",
+  "description": "This extension uses your PayPal transaction history to predict when you'll have enough savings to buy products you want.",
+  "version": "2.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+        {
+            "matches": [
+                "https://www.paypal.com/myaccount/home"
+            ],
+            "js": [
+                "paypal.js"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "not-paypal.js"
+            ],
+	    "css":[
+                "tooltip.css"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}

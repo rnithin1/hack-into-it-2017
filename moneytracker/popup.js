@@ -19,7 +19,7 @@ function addRow() {
 }
 
 var getDate = function(callback) {
-  var code = document.getSelection().toString().replace(",","");
+  var code = document.getElementById("price").value;
   var target = -1;
   if (code.charAt(0) == "$" && code.slice(1) == parseFloat(code.slice(1)) && parseFloat(code.slice(1)) >= 0)
       target = parseFloat(code.slice(1));

@@ -6,7 +6,7 @@ chrome.storage.sync.get(['monies'], function(monies){
     isEmpty = Object.keys(monies).length === 0 && monies.constructor === Object;
     console.log(Monies);
     if(!isEmpty && Monies){
-        chrome.storage.sync.get(['times'], function(times
+        chrome.storage.sync.get(['times'], function(times){
             if(time - times['times'][times['times'].length - 1] > 2 || monies['monies'][monies['monies'].length - 1] != Monies){
                 console.log(monies['monies']);
                 console.log(times['times']);

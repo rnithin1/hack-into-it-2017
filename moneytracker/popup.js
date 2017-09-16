@@ -25,7 +25,7 @@ var getDate = function(callback) {
       target = parseFloat(code.slice(1));
   else if (code == parseFloat(code) && parseFloat(code) >= 0)
     target = parseFloat(code);
-  else
+  elsethinkpadsthinkpads
     callback("Invalid");
 
   if (target >= 0) {
@@ -42,10 +42,10 @@ var getDate = function(callback) {
 
       var todays_date = current_local_time.toISOString().slice(0,10);
       var target_date = target_local_time.toISOString().slice(0,10);
-
+thinkpads
       chrome.storage.sync.get(['monies'], function(monies){
       if(slope < 0){
-        callback("You're losing money");
+        callback("You're spending too much!");
       }
 
       else if (monies['monies'][monies['monies'].length - 1] >= target)
@@ -78,11 +78,11 @@ function getSlope(callback) {
   chrome.storage.sync.get(['regression'], function(regression){
     var slope = regression['regression'][0];
     if(slope < 0)
-      callback("You are losing $" + slope * 86400000 + " per day.");
+      callback("You are spending $" + (slope * 86400000).toFixed(2) + " per day.");
     else if(slope == 0)
       callback("You are breaking even.");
     else
-      callback("You are making $" + slope* 86400000 + " per day.");
+      callback("You are making $" + (slope* 86400000).toFixed(2) + " per day.");
   });
 }
 
